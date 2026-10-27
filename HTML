@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Head Football Pro</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="startScreen" class="screen active">
+      <div class="start-panel">
+        <div class="title-wrap">
+          <span class="mini-label">Arcade Match</span>
+          <h1>Head Football Pro</h1>
+        </div>
+
+        <p class="subtitle">
+          Schieße mehr Tore als der Computer und halte die Kontrolle.
+        </p>
+
+        <div class="start-info">
+          <div><strong>Steuerung:</strong> A / D oder Pfeiltasten</div>
+          <div><strong>Springen:</strong> W / ↑ / Leertaste</div>
+        </div>
+
+        <button id="startBtn" class="primary-btn" type="button">Spiel starten</button>
+      </div>
+    </div>
+
+    <div id="gameShell" class="app-shell hidden">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-badge">HF</div>
+          <div class="brand-text">Head Football Pro</div>
+        </div>
+
+        <div class="scoreboard">
+          <div class="team">
+            <span>Du</span>
+            <strong id="scoreUser">0</strong>
+          </div>
+
+          <div class="divider">:</div>
+
+          <div class="team">
+            <span>CPU</span>
+            <strong id="scoreAi">0</strong>
+          </div>
+        </div>
+
+        <button id="emergencyBtn" class="emergency-btn" type="button">Not</button>
+      </header>
+
+      <main class="game-area">
+        <aside class="side-panel left-panel">
+          <div class="panel-box">
+            <h3>Mission</h3>
+            <p>Mach mehr Tore als der Computer.</p>
+          </div>
+
+          <div class="panel-box">
+            <h3>Highscore</h3>
+            <ol id="highscoreList" class="highscore-list"></ol>
+          </div>
+        </aside>
+
+        <section class="pitch-wrap">
+          <div id="pitch" class="pitch">
+            <div class="goal goal-left"></div>
+            <div class="goal goal-right"></div>
+
+            <div class="midline"></div>
+            <div class="center-circle"></div>
+
+            <div id="ball" class="ball"></div>
+            <div id="player" class="player player-user"></div>
+            <div id="ai" class="player player-ai"></div>
+          </div>
+
+          <div class="hud">
+            <div class="hud-item">
+              <span class="label">Zeit</span>
+              <strong id="timer">60</strong>
+            </div>
+            <div class="hud-item">
+              <span class="label">Best</span>
+              <strong id="bestScore">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-panel right-panel">
+          <div class="panel-box">
+            <h3>Steuerung</h3>
+            <ul>
+              <li>A / D oder Pfeiltasten</li>
+              <li>W / ↑ / Leertaste zum Springen</li>
+            </ul>
+          </div>
+
+          <div class="panel-box">
+            <h3>Spielstatus</h3>
+            <p id="statusText">Laufend</p>
+          </div>
+
+          <button id="restartBtn" class="restart-btn" type="button">Neustart</button>
+        </aside>
+      </main>
+    </div>
+
+    <div id="resultScreen" class="screen hidden">
+      <div class="result-panel">
+        <div class="result-badge">Match beendet</div>
+        <h2>Ergebnis</h2>
+        <div class="result-score">
+          <span>Du</span>
+          <strong id="finalScore">0 : 0</strong>
+          <span>CPU</span>
+        </div>
+
+        <p id="resultMessage">Gut gespielt!</p>
+
+        <button id="playAgainBtn" class="primary-btn" type="button">Nochmal spielen</button>
+      </div>
+    </div>
+
+    <div id="calcOverlay" class="overlay hidden" aria-hidden="true">
+      <div class="calculator-panel">
+        <h2>Notfall</h2>
+        <p id="calcHint">Rechne 6 + 7, um das Spiel wieder zu öffnen.</p>
+        <div id="calcDisplay" class="calc-display">0</div>
+
+        <div class="calc-grid">
+          <button type="button" class="calc-btn op" data-value="/">/</button>
+          <button type="button" class="calc-btn op" data-value="*">*</button>
+          <button type="button" class="calc-btn op" data-value="-">-</button>
+          <button type="button" class="calc-btn op" data-value="+">+</button>
+
+          <button type="button" class="calc-btn" data-value="7">7</button>
+          <button type="button" class="calc-btn" data-value="8">8</button>
+          <button type="button" class="calc-btn" data-value="9">9</button>
+          <button type="button" class="calc-btn accent" data-value="clear">C</button>
+
+          <button type="button" class="calc-btn" data-value="4">4</button>
+          <button type="button" class="calc-btn" data-value="5">5</button>
+          <button type="button" class="calc-btn" data-value="6">6</button>
+          <button type="button" class="calc-btn accent" data-value="del">⌫</button>
+
+          <button type="button" class="calc-btn" data-value="1">1</button>
+          <button type="button" class="calc-btn" data-value="2">2</button>
+          <button type="button" class="calc-btn" data-value="3">3</button>
+          <button type="button" class="calc-btn equals" data-value="equals">=</button>
+
+          <button type="button" class="calc-btn zero" data-value="0">0</button>
+          <button type="button" class="calc-btn" data-value=".">.</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
